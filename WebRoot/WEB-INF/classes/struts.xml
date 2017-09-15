@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<!-- 将对象交给spring管理 -->
+    <constant name="struts.objectFactory" value="spring" />
+	<package name="Manage" extends="struts-default"> 
+		<global-results>
+			<result name="error">/jsp/error.jsp</result>
+			<result name="success">/jsp/success.jsp</result>
+		</global-results>
+	<!-- 登录界面 -->	
+		<action name="userAction" class="userAct" method="doLogin">
+			<result name="login">/Main.jsp</result>
+		</action>
+		<!-- 修改密码-->
+	    <action name="userquery1" class="userAct" method="douserQuery1">
+		    <result name="2">/leftPages/passUpdate.jsp</result>
+		</action>
+		<!-- 学生管理 -->	
+		<action name="studentQuery" class="userAct" method="dostudentQuery">
+		    <result name="success">/leftPages/StudentSelect.jsp</result>
+		    <result name="error">/leftPages/StudentSelect.jsp</result>
+		</action>
+		<action name="stuClass" class="classAct" method="doQuery2">
+		    <result name="stuClass">/leftPages/StudentAdd.jsp</result>
+		</action>
+		<action name="studentAdd" class="userAct" method="dostudentAdd">
+		    <result name="userS">/leftPages/open.html</result>
+		</action>
+	    <action name="studentEdit" class="userAct" method="dostudentEdit">
+	        <result name="editUser">/leftPages/StudentEdit.jsp</result>
+	    </action>
+		<action name="studentUpdate" class="userAct" method="dostudentEdit">
+	        <result name="updateUser">/leftPages/StudentSelect.jsp</result>
+	   </action>
+		<action name="studentDelete" class="userAct" method="dostudentDelete">
+		    <result name="deleteUser">/leftPages/StudentSelect.jsp</result>
+	    </action>
+		
+	<!-- 班级管理 -->	
+	    <action name="classQuery" class="classAct" method="doclamQuery">
+		    <result name="success">/leftPages/ClassSelect.jsp</result>
+		    <result name="error">/leftPages/ClassSelect.jsp</result>
+		</action>
+		<action name="classAdd" class="classAct" method="doclamAdd">
+		    <result name="clamS">/leftPages/open.html</result>
+		</action>
+	    <action name="classEdit" class="classAct" method="doclamEdit">
+	        <result name="editClass">/leftPages/ClassEdit.jsp</result>
+	    </action>
+	    <action name="classUpdate" class="classAct" method="doclamEdit">
+	        <result name="updateClass">/leftPages/ClassSelect.jsp</result>
+	    </action>
+	    <action name="classDelete" class="classAct" method="doclamDelete">
+	        <result name="deleteClass">/leftPages/ClassSelect.jsp</result>
+	    </action>
+		
+	<!-- 课程管理 -->	
+	    <action name="courseQuery" class="courseAct" method="doCourseQuery">
+		    <result name="success">/leftPages/CourseSelect.jsp</result>
+		    <result name="error">/leftPages/CourseSelect.jsp</result>
+		</action>
+		<action name="courseAdd" class="courseAct" method="doCourseAdd">
+		    <result name="CourseS">/leftPages/open.html</result>
+		</action>
+	    <action name="courseEdit" class="courseAct" method="docourseEdit">
+	        <result name="editCourse">/leftPages/CourseEdit.jsp</result>
+	    </action>	
+	    <action name="courseUpdate" class="courseAct" method="docourseEdit">
+	        <result name="updateCourse">/leftPages/CourseSelect.jsp</result>
+	    </action>
+		<action name="courseDelete" class="courseAct" method="docourseDelete">
+		    <result name="deleteCourse">/leftPages/CourseSelect.jsp</result>
+		</action>	
+	<!-- 成绩管理 -->	
+	    <action name="stuGrade" class="gradeAct" method="doQuery2">
+		    <result name="stuGrade">/leftPages/GradeAdd.jsp</result>
+		</action>
+	    <action name="gradeQuery" class="gradeAct" method="doGradeQuery">
+		    <result name="success">/leftPages/CourseSelect.jsp</result>
+		    <result name="error">/leftPages/CourseSelect.jsp</result>
+		</action>
+		<action name="gradeAdd" class="gradeAct" method="doGradeAdd">
+		    <result name="GradeS">/leftPages/open.html</result>
+		</action>
+	<!-- 查询某一学生的课程成绩       学分      不及格成绩 -->
+	   	<action name="studentGrade" class="gradeAct" method="doStudentGrade">
+		    <result name="success">/leftPages/StudentGrade.jsp</result>
+		</action>
+	<!-- 查询某一门课程的课程成绩       学分      不及格成绩 -->
+	   	<action name="courseGrade" class="gradeAct" method="doCourseGrade">
+		    <result name="success">/leftPages/CourseGrade.jsp</result>
+		</action>	
+		</package>
+</struts>    
